@@ -21,6 +21,9 @@
 		63A7DD9E2C1DEF4500C2F9D2 /* ListingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A7DD9D2C1DEF4500C2F9D2 /* ListingDataSource.swift */; };
 		63A7DDA02C1DEF5800C2F9D2 /* RemoteListingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A7DD9F2C1DEF5800C2F9D2 /* RemoteListingDataSource.swift */; };
 		63DEECEF2C1DF7F800E003B4 /* CategoriesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DEECEE2C1DF7F800E003B4 /* CategoriesDataSource.swift */; };
+		63DEECF12C1DFDAD00E003B4 /* ListingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DEECF02C1DFDAD00E003B4 /* ListingRepository.swift */; };
+		63DEECF32C1DFEAC00E003B4 /* ClassifiedAddDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DEECF22C1DFEAC00E003B4 /* ClassifiedAddDomainModel.swift */; };
+		63DEECF62C1E079700E003B4 /* ClassifiedAddsDomainMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DEECF52C1E079700E003B4 /* ClassifiedAddsDomainMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,9 @@
 		63A7DD9D2C1DEF4500C2F9D2 /* ListingDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDataSource.swift; sourceTree = "<group>"; };
 		63A7DD9F2C1DEF5800C2F9D2 /* RemoteListingDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteListingDataSource.swift; sourceTree = "<group>"; };
 		63DEECEE2C1DF7F800E003B4 /* CategoriesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesDataSource.swift; sourceTree = "<group>"; };
+		63DEECF02C1DFDAD00E003B4 /* ListingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingRepository.swift; sourceTree = "<group>"; };
+		63DEECF22C1DFEAC00E003B4 /* ClassifiedAddDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedAddDomainModel.swift; sourceTree = "<group>"; };
+		63DEECF52C1E079700E003B4 /* ClassifiedAddsDomainMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedAddsDomainMapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,17 +175,18 @@
 			path = Domain;
 			sourceTree = "<group>";
 		};
-		63A7DDA32C1DF00000C2F9D2 /* UI */ = {
+		63A7DDA32C1DF00000C2F9D2 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				63A7DD5E2C1DAAC600C2F9D2 /* ViewController.swift */,
 			);
-			path = UI;
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		63A7DDA42C1DF0DF00C2F9D2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				63DEECF22C1DFEAC00E003B4 /* ClassifiedAddDomainModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -187,6 +194,8 @@
 		63A7DDA52C1DF0EE00C2F9D2 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				63DEECF42C1E075F00E003B4 /* Mappers */,
+				63DEECF02C1DFDAD00E003B4 /* ListingRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -203,7 +212,7 @@
 			children = (
 				63A7DD942C1DEDA900C2F9D2 /* Data */,
 				63A7DDA22C1DEFFA00C2F9D2 /* Domain */,
-				63A7DDA32C1DF00000C2F9D2 /* UI */,
+				63A7DDA32C1DF00000C2F9D2 /* Presentation */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -214,6 +223,14 @@
 				63DEECEE2C1DF7F800E003B4 /* CategoriesDataSource.swift */,
 			);
 			path = CategoriesDataSource;
+			sourceTree = "<group>";
+		};
+		63DEECF42C1E075F00E003B4 /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+				63DEECF52C1E079700E003B4 /* ClassifiedAddsDomainMapper.swift */,
+			);
+			path = Mappers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,8 +340,11 @@
 				63DEECEF2C1DF7F800E003B4 /* CategoriesDataSource.swift in Sources */,
 				63A7DD5F2C1DAAC600C2F9D2 /* ViewController.swift in Sources */,
 				63A7DD5B2C1DAAC600C2F9D2 /* AppDelegate.swift in Sources */,
+				63DEECF62C1E079700E003B4 /* ClassifiedAddsDomainMapper.swift in Sources */,
 				63A7DD922C1DC8F700C2F9D2 /* URLSessionNetworkClient.swift in Sources */,
+				63DEECF12C1DFDAD00E003B4 /* ListingRepository.swift in Sources */,
 				63A7DD972C1DEDC400C2F9D2 /* ImagesURL.swift in Sources */,
+				63DEECF32C1DFEAC00E003B4 /* ClassifiedAddDomainModel.swift in Sources */,
 				63A7DD5D2C1DAAC600C2F9D2 /* SceneDelegate.swift in Sources */,
 				63A7DDA02C1DEF5800C2F9D2 /* RemoteListingDataSource.swift in Sources */,
 			);
