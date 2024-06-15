@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "02ABEA51-BF19-4D13-82A0-1ED0B9352FA8",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:ListingLeboncoin.xcodeproj",
+      "identifier" : "63A7DD562C1DAAC600C2F9D2",
+      "name" : "ListingLeboncoin"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:ListingLeboncoin.xcodeproj",
+        "identifier" : "63A7DD6C2C1DAAC700C2F9D2",
+        "name" : "ListingLeboncoinTests"
+      }
+    }
+  ],
+  "version" : 1
+}
