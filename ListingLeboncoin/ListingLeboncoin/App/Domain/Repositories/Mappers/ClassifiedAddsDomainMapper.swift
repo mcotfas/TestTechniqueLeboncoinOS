@@ -6,7 +6,6 @@
 import Foundation
 
 protocol ClassifiedAddsDomainMapper {
-    #warning("TODO: Add Doc")
     func mapToDomain(
         from classifiedAddsDataModel: [ClassifiedAddDataModel],
         with categories: [CategoryDataModel]
@@ -21,7 +20,6 @@ struct ClassifiedAddDomainMapperImpl: ClassifiedAddsDomainMapper {
         
         classifiedAddsDataModel.compactMap { classifiedAddDataModel -> ClassifiedAddDomainModel? in
             guard let categoryName = categoriesDataModel.first(where: { $0.id == classifiedAddDataModel.categoryId })?.name else {
-                #warning("TODO: Log unknown add category")
                 return nil
             }
             
@@ -29,7 +27,11 @@ struct ClassifiedAddDomainMapperImpl: ClassifiedAddsDomainMapper {
                 id: classifiedAddDataModel.id,
                 categoryName: categoryName,
                 title: classifiedAddDataModel.title,
-                description: classifiedAddDataModel.description
+                description: classifiedAddDataModel.description,
+                price: classifiedAddDataModel.price,
+                isUrgent: classifiedAddDataModel.isUrgent,
+                imageSmallURLString: classifiedAddDataModel.imagesUrl.small,
+                imageThumbURLString: classifiedAddDataModel.imagesUrl.thumb
             )
         }
     }

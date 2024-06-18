@@ -6,13 +6,12 @@
 
 import Foundation
 
-struct ClassifiedAddDomainModel {
+struct ClassifiedAddUIModel {
     let id: Int
     let categoryName: String
     let title: String
-    let description: String
-    let price: Double
     let isUrgent: Bool
+    let price: String
     let imageSmallURLString: String?
     let imageThumbURLString: String?
 }

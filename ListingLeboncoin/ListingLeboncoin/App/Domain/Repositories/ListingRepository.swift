@@ -10,15 +10,15 @@ protocol ListingRepository {
     func getClassifiedAdds() async throws -> [ClassifiedAddDomainModel]
 }
 
-struct ListingRepositoryImpl {
+struct ListingRepositoryImpl: ListingRepository {
     private let listingDataSource: ListingDataSource
     private let categoriesDataSource: CategoriesDataSource    
     private let classifiedAddsDomainMapper: ClassifiedAddsDomainMapper
     
     init(
-        listingDataSource: ListingDataSource,
-        categoriesDataSource: CategoriesDataSource,
-        classifiedAddDomainMapper: ClassifiedAddsDomainMapper
+        listingDataSource: ListingDataSource = RemoteListingDataSource(),
+        categoriesDataSource: CategoriesDataSource = RemoteCategoriesDataSource(),
+        classifiedAddDomainMapper: ClassifiedAddsDomainMapper = ClassifiedAddDomainMapperImpl()
     ) {
         self.listingDataSource = listingDataSource
         self.categoriesDataSource = categoriesDataSource
