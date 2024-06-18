@@ -10,8 +10,12 @@ struct ClassifiedAddUIModel {
     let id: Int
     let categoryName: String
     let title: String
-    let isUrgent: Bool
+    let description: String
     let price: String
+    let isUrgent: Bool
+    let creationDate: String
+    let siret: String?
+    
     let imageSmallURLString: String?
     let imageThumbURLString: String?
 }

@@ -17,10 +17,10 @@ final class ListingLoadedCollectionViewController: UICollectionViewController {
         }
     }
     
-    private let isCompact: Bool
+    private let onClassifiedAddSelected: (ClassifiedAddUIModel) -> Void
     
-    init(isCompact: Bool) {
-        self.isCompact = isCompact
+    init(onClassifiedAddSelected: @escaping (ClassifiedAddUIModel) -> Void) {
+        self.onClassifiedAddSelected = onClassifiedAddSelected
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
     
@@ -90,7 +90,8 @@ extension ListingLoadedCollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let uiModel = classifiedAddsUIModels[indexPath.item]
+        onClassifiedAddSelected(uiModel)
     }
 }
 

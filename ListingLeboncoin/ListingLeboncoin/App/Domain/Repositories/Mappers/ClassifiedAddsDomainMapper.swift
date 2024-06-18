@@ -30,6 +30,8 @@ struct ClassifiedAddDomainMapperImpl: ClassifiedAddsDomainMapper {
                 description: classifiedAddDataModel.description,
                 price: classifiedAddDataModel.price,
                 isUrgent: classifiedAddDataModel.isUrgent,
+                creationDate: classifiedAddDataModel.creationDate,
+                siret: classifiedAddDataModel.siret,
                 imageSmallURLString: classifiedAddDataModel.imagesUrl.small,
                 imageThumbURLString: classifiedAddDataModel.imagesUrl.thumb
             )

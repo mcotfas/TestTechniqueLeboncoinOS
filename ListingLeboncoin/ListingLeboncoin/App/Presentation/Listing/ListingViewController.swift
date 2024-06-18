@@ -10,7 +10,9 @@ import UIKit
 final class ListingViewController: UIViewController {
     private let viewModel: ListingViewModel
     private let isCompact: Bool
+    
     private var cancellables: Set<AnyCancellable> = []
+    private var listingTask: Task<(), Never>?
     
     init(
         viewModel: ListingViewModel,
@@ -56,7 +58,7 @@ final class ListingViewController: UIViewController {
         ])
         listingLoadedCollectionViewController.didMove(toParent: self)
         
-        // Error
+        // Reload
         view.addSubview(reloadButton)
         NSLayoutConstraint.activate([
             reloadButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -93,32 +95,39 @@ final class ListingViewController: UIViewController {
     }
     
     @objc private func loadListing() {
-        Task {
+        listingTask?.cancel()
+        listingTask = Task {
             await viewModel.loadListing()
         }
     }
     
     // MARK: Views
-        
-    private lazy var loadingIndicatorView: UIActivityIndicatorView = {
-        let view = UIActivityIndicatorView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.startAnimating()
-        view.color = .yellow
-        return view
-    }()
     
     private lazy var listingLoadedCollectionViewController: ListingLoadedCollectionViewController = {
-        ListingLoadedCollectionViewController(isCompact: isCompact)
+        ListingLoadedCollectionViewController { [weak self] uiModel in
+            guard let self else { return }
+            
+            let imageViewModel = ImageViewModel()
+            let viewController = ClassifiedAddViewController(
+                uiModel: uiModel,
+                imageViewModel: imageViewModel
+            )
+            
+            if self.isCompact {
+                show(viewController, sender: self)
+            } else {
+                self.showDetailViewController(UINavigationController(rootViewController: viewController), sender: self)
+            }
+        }
     }()
     
     private lazy var reloadButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "goforward"), for: .normal)
-        button.tintColor = .white
-        button.addTarget(self, action: #selector(loadListing), for: .touchUpInside)
-        
-        return button
+        ViewsFactory.makeReloadButton { [weak self] in
+            self?.loadListing()
+        }
+    }()
+    
+    private lazy var loadingIndicatorView: UIActivityIndicatorView = {
+        ViewsFactory.makeLoadingIndicatorView()
     }()
 }

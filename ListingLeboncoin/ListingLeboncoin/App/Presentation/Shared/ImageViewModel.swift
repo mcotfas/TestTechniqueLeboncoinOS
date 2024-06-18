@@ -7,8 +7,8 @@
 import Combine
 import Foundation
 
-struct ClassifiedAddCollectionViewModelCell {
-    enum ImageState {
+struct ImageViewModel {
+    enum State {
         case loading
         case loaded(imageData: Data)
         case noImage
@@ -17,8 +17,8 @@ struct ClassifiedAddCollectionViewModelCell {
 
     private let imageUseCase: ImageUseCase
     
-    private let imageSubject: CurrentValueSubject<ImageState, Never> = CurrentValueSubject(.loading)
-    var imagePublisher: AnyPublisher<ImageState, Never> {
+    private let imageSubject: CurrentValueSubject<State, Never> = CurrentValueSubject(.loading)
+    var imagePublisher: AnyPublisher<State, Never> {
         imageSubject.eraseToAnyPublisher()
     }
         

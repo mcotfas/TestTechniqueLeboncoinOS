@@ -14,10 +14,15 @@ struct ListingViewModel {
     }
     
     private let listingUseCase: ListingUseCase
+    private let classifiedAddUIMapper: ClassifiedAddUIMapper
     private let stateSubject: CurrentValueSubject<ViewState, Never> = CurrentValueSubject(.loading)
     
-    init(listingUseCase: ListingUseCase = ListingUseCaseImpl()) {
+    init(
+        listingUseCase: ListingUseCase = ListingUseCaseImpl(),
+        classifiedAddUIMapper: ClassifiedAddUIMapper = ClassifiedAddUIMapperImpl()
+    ) {
         self.listingUseCase = listingUseCase
+        self.classifiedAddUIMapper = classifiedAddUIMapper
     }
     
     var state: AnyPublisher<ViewState, Never> {
@@ -29,27 +34,11 @@ struct ListingViewModel {
         
         do {
             let classifiedAddsDomainModel = try await listingUseCase.getSortedListing()
-                        
-            #warning("TODO: Extract mapper")
             
             let classifiedAddsUIModel = classifiedAddsDomainModel.map {
-                let formatter = NumberFormatter()
-                formatter.numberStyle = .currency
-                formatter.locale = Locale(identifier: "fr_FR")
-                let price = formatter.string(from: NSNumber(value: $0.price)) ?? "-"
-                
-                return ClassifiedAddUIModel(
-                    id: $0.id,
-                    categoryName: $0.categoryName,
-                    title: $0.title,
-                    isUrgent: $0.isUrgent,
-                    price: price,
-                    imageSmallURLString: $0.imageSmallURLString,
-                    imageThumbURLString: $0.imageThumbURLString
-                )
+                classifiedAddUIMapper.mapToUI(domainModel: $0)                
             }
-            stateSubject.send(.loaded(classifiedAddsUIModels: classifiedAddsUIModel))
-            
+            stateSubject.send(.loaded(classifiedAddsUIModels: classifiedAddsUIModel))            
         } catch {
             stateSubject.send(.error)
         }
