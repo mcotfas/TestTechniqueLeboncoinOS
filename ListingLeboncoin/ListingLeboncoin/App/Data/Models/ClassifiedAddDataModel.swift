@@ -6,7 +6,7 @@
 
 import Foundation
 
-struct ClassifiedAddDataModel: Decodable {
+struct ClassifiedAddDataModel: Decodable, Equatable {
     let id: Int
     let title: String
     let categoryId: Int

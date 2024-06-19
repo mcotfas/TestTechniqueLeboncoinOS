@@ -44,6 +44,7 @@
 		63F378052C22B11F00693924 /* NetworkClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F378042C22B11F00693924 /* NetworkClientStub.swift */; };
 		63F378082C22B3FB00693924 /* AnyErrorTestValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F378072C22B3FB00693924 /* AnyErrorTestValue.swift */; };
 		63F3780A2C22B63600693924 /* RemoteCategoriesDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F378092C22B63600693924 /* RemoteCategoriesDataSourceTests.swift */; };
+		63F3780C2C22BA1600693924 /* RemoteListingDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F3780B2C22BA1600693924 /* RemoteListingDataSourceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		63F378042C22B11F00693924 /* NetworkClientStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientStub.swift; sourceTree = "<group>"; };
 		63F378072C22B3FB00693924 /* AnyErrorTestValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyErrorTestValue.swift; sourceTree = "<group>"; };
 		63F378092C22B63600693924 /* RemoteCategoriesDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCategoriesDataSourceTests.swift; sourceTree = "<group>"; };
+		63F3780B2C22BA1600693924 /* RemoteListingDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteListingDataSourceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,6 +387,7 @@
 				63F378032C22B0E500693924 /* Mocks */,
 				63DEED2C2C22B00500E003B4 /* RemoteImageDataSourceTests.swift */,
 				63F378092C22B63600693924 /* RemoteCategoriesDataSourceTests.swift */,
+				63F3780B2C22BA1600693924 /* RemoteListingDataSourceTests.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -545,6 +548,7 @@
 				63F378052C22B11F00693924 /* NetworkClientStub.swift in Sources */,
 				63F3780A2C22B63600693924 /* RemoteCategoriesDataSourceTests.swift in Sources */,
 				63F378082C22B3FB00693924 /* AnyErrorTestValue.swift in Sources */,
+				63F3780C2C22BA1600693924 /* RemoteListingDataSourceTests.swift in Sources */,
 				63DEED2D2C22B00500E003B4 /* RemoteImageDataSourceTests.swift in Sources */,
 				63DEED2A2C22A72600E003B4 /* URLSessionNetworkClientTests.swift in Sources */,
 			);
