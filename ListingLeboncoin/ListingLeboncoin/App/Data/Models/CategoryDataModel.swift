@@ -6,7 +6,7 @@
 
 import Foundation
 
-struct CategoryDataModel: Decodable {
+struct CategoryDataModel: Decodable, Equatable {
     let id: Int
     let name: String
 }
