@@ -17,7 +17,7 @@ struct RemoteCategoriesDataSource: CategoriesDataSource {
     
     private let client: NetworkClient
     
-    init(client: NetworkClient = URLSessionNetworkClient(urlSession: .shared)) {
+    init(client: NetworkClient = URLSessionNetworkClient(urlSession: URLSession.shared)) {
         self.client = client
     }
     

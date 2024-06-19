@@ -5,8 +5,18 @@
     
 import Foundation
 
+extension URLSession: URLSessionProtocol {}
+
+protocol URLSessionProtocol {
+    func data(for request: URLRequest) async throws -> (Data, URLResponse)
+}
+
 struct URLSessionNetworkClient: NetworkClient {
-    let urlSession: URLSession
+    private let urlSession: URLSessionProtocol
+    
+    init(urlSession: URLSessionProtocol) {
+        self.urlSession = urlSession
+    }
         
     func getData(for url: URL) async throws -> Data {
         var urlRequest = URLRequest(url: url)
