@@ -8,7 +8,7 @@ import Foundation
 protocol ClassifiedAddsDomainMapper {
     func mapToDomain(
         from classifiedAddsDataModel: [ClassifiedAddDataModel],
-        with categories: [CategoryDataModel]
+        with categoriesDataModel: [CategoryDataModel]
     ) -> [ClassifiedAddDomainModel]
 }
 

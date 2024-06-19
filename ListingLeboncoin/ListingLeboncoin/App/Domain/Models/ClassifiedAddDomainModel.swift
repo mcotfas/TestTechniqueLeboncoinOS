@@ -6,7 +6,7 @@
 
 import Foundation
 
-struct ClassifiedAddDomainModel {
+struct ClassifiedAddDomainModel: Equatable {
     let id: Int
     let categoryName: String
     let title: String
