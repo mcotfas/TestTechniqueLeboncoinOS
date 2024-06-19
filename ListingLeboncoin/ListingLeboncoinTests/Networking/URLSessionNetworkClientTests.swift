@@ -80,7 +80,7 @@ final class URLSessionNetworkClientTests: XCTestCase {
         XCTAssertEqual(data, mocks.urlSession.dataStub)
     }
     
-    // MARK: - Helpers
+    // MARK: Helpers
     
     private struct Mocks {
         let urlSession: URLSessionStub
@@ -97,7 +97,7 @@ final class URLSessionNetworkClientTests: XCTestCase {
     }
 }
 
-// MARK - Mocks
+// MARK: - Mocks
 
 final class URLSessionStub: URLSessionProtocol {
     
